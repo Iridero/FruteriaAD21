@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using FruteriaAD21.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-
+using FruteriaAD21.Services;
 namespace FruteriaAD21
 {
     public class Startup
@@ -24,6 +24,7 @@ namespace FruteriaAD21
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<CategoriasService>();
             string connectionString = Configuration.GetConnectionString("DefaultConnectio");
             services.AddDbContext<fruteriashopContext>(
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
