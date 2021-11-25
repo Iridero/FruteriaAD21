@@ -14,12 +14,12 @@
     <header></header>
     <nav>
         <a href="~/Home">Principal</a>
-        <a href="~/Home/Categoria">Categoria</a>
-        <a href="~/Home/Categoria">Categoria</a>
-        <a href="~/Home/Categoria">Categoria</a>
-        <a href="~/Home/Categoria">Categoria</a>
-        <a href="~/Home/Categoria">Categoria</a>
-        <a href="~/Home/Categoria">Categoria</a>
+        @foreach (var cat in cats)
+        {
+            <a asp-action="Categoria" asp-route-id="@cat">@cat</a>
+        }
+        @*<a href="~/Home/Categoria">Categoria</a>*@
+        
     </nav>
     <main>
         @RenderBody()
