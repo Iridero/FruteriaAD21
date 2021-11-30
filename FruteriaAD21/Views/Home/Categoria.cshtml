@@ -9,12 +9,13 @@
 <div class="productos">
     @foreach (var p in Model)
     {
-
+    <a  asp-action="VerProducto" 
+       asp-route-id="@p.Nombre.ToLower().Replace(" ","-")">
         <div>
             <img src="~/img_frutas/@(p.Id).jpg" alt="Imagen de @p.Nombre" />
         </div>
         <h2>@p.Nombre</h2>
         <h3>@p.Precio.ToString()</h3>
-
+    </a>
     }
 </div>

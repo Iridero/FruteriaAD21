@@ -21,5 +21,20 @@ namespace FruteriaAD21.Controllers
             var pr = new ProductosRepository();
             return View(pr.GetAll());
         }
+
+        [Route("producto/{id}")]
+        public IActionResult VerProducto(string id)
+        {
+            ProductosRepository repo = new ProductosRepository();
+            var p = repo.GetProductoByNombre(id);
+            if (p==null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(p);
+            }
+        }
     }
 }
