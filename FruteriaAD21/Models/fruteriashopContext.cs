@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -22,7 +25,15 @@ namespace FruteriaAD21.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+            var config = builder.Build();
+            string connectionString = config.GetConnectionString("DefaultConnection");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

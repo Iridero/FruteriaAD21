@@ -1,0 +1,22 @@
+﻿
+
+@model IEnumerable<Categoria>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>Categorías</h1>
+<table>
+    <thead>
+        <tr><th>Categoría</th><th>Acciones</th></tr>
+    </thead>
+    @foreach (var cat in Model)
+    {
+        <tr>
+            <td>@cat.Nombre</td>
+            <td><a asp-action="Eliminar" asp-route-id="@cat.Id">Eliminar</a></td>
+        </tr>
+    }
+</table>
+
