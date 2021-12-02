@@ -20,7 +20,7 @@ namespace FruteriaAD21.Repositories
         {
            Context = new fruteriashopContext();
         }
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return Context.Set<T>();
         }

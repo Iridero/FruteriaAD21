@@ -1,5 +1,5 @@
 ﻿@inject FruteriaAD21.Services.CategoriasService categorias
-@{ 
+@{
     var cats = categorias.GetNombresCategorias();
 }
 <!DOCTYPE html>
@@ -19,10 +19,11 @@
             <a asp-action="Categoria" asp-route-id="@cat">@cat</a>
         }
         @*<a href="~/Home/Categoria">Categoria</a>*@
-        
+
     </nav>
     <main>
         @RenderBody()
     </main>
 </body>
 </html>
+© 2021 GitHub, Inc.
