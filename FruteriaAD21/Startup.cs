@@ -7,15 +7,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using FruteriaAD21.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using FruteriaAD21.Services;
+
 namespace FruteriaAD21
 {
     public class Startup
     {
-        IConfiguration Configuration { get; }
+
+        public IConfiguration Configuration { get; private set; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +28,7 @@ namespace FruteriaAD21
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             
             string connectionString = Configuration.GetConnectionString("DefaultConnectio");
             services.AddDbContext<fruteriashopContext>(
@@ -32,6 +37,7 @@ namespace FruteriaAD21
             services.AddMvc(
                 options => options.EnableEndpointRouting = false
                 );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

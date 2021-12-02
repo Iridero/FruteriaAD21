@@ -3,8 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+
+
 using FruteriaAD21.Repositories;
 using FruteriaAD21.Models;
+
 namespace FruteriaAD21.Controllers
 {
     public class HomeController : Controller
@@ -13,6 +17,7 @@ namespace FruteriaAD21.Controllers
         {
             return View();
         }
+
 
         [Route("{id}")]
         public IActionResult Categoria(string id)
@@ -36,5 +41,6 @@ namespace FruteriaAD21.Controllers
                 return View(p);
             }
         }
+
     }
 }

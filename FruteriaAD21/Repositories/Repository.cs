@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FruteriaAD21.Models;
+
+using Microsoft.EntityFrameworkCore;
+
+
 namespace FruteriaAD21.Repositories
 {
     public abstract class Repository<T> where T:class
@@ -47,6 +51,7 @@ namespace FruteriaAD21.Repositories
         public void Save()
         {
             Context.SaveChanges();
+
         }
     }
 }
