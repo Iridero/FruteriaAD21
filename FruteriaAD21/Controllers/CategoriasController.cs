@@ -20,5 +20,22 @@ namespace FruteriaAD21.Controllers
             var cats = repo.GetAll();
             return View(cats);
         }
+
+        public IActionResult Eliminar(int id)
+        {
+            var repo = new CategoriasRepository(context);
+            return View(repo.GetById(id));
+        }
+        [HttpPost]
+        public IActionResult Eliminar(Categoria datos)
+        {
+            var repo = new CategoriasRepository(context);
+            var cat = repo.GetById(datos.Id);
+            if (cat==null)
+            {
+
+            }
+            return View();
+        }
     }
 }

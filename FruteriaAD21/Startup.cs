@@ -30,7 +30,7 @@ namespace FruteriaAD21
         {
 
             
-            string connectionString = Configuration.GetConnectionString("DefaultConnectio");
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<fruteriashopContext>(
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             services.AddScoped<CategoriasService>();

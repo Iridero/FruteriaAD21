@@ -1,0 +1,19 @@
+﻿@model Categoria
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" asp-action="Eliminar">
+   
+    <input type="hidden" asp-for="Id"/>
+
+    <h1>Eliminar</h1>
+    <p>Está a punto de eliminar la categoría @Model.Nombre.</p>
+    <p>¿Desea continuar?</p>
+    <div class="botones">
+        <input type="submit" value="Sí" />
+        <input type="button" value="No" onclick="@("window.location.href='"+Url.Action("Index", "Categorias")+"'");" />
+    </div>
+</form>
+
+
